@@ -1,0 +1,28 @@
+﻿@page
+@model SlijterijSjonnieLoper.Pages.Whiskeys.ListModel
+@{
+}
+
+<h2>Whiskeys</h2>
+
+<form action="get">
+    <div class="input-group">
+        <input type="search" class="form-control" value="" />
+        <span class="input-group-btn">
+            <button class="btn btn-danger">
+            </button>
+            </span>
+    </div>
+</form>
+
+
+<table class="table">
+@foreach(var whiskey in Model.Whiskeys)
+{
+    <tr>
+        <td>@whiskey.Name</td>
+        <td>@whiskey.Brand</td>
+        <td>@whiskey.Type</td>
+    </tr>
+}
+</table>
