@@ -17,6 +17,8 @@ namespace SlijterijSjonnieLoper.Pages.Whiskeys
 
         public string Message { get; set; }
         public IEnumerable<Whiskey> Whiskeys { get; set; }
+        [BindProperty(SupportsGet = true )]
+        public string SearchTerm { get; set; }
 
         public ListModel(IConfiguration config,
                          IWhiskeyData whiskeyData)
@@ -24,10 +26,9 @@ namespace SlijterijSjonnieLoper.Pages.Whiskeys
             this.config = config;
             this.whiskeyData = whiskeyData;
         }
-        public void OnGet()
-        {
-            Message = "Hellos";
-            Whiskeys = whiskeyData.GetAll();
+        public void OnGet(string searchTerm)
+        { 
+            Whiskeys = whiskeyData.GetWhiskeysByName(SearchTerm);
         }
-    }
+    } 
 }

@@ -6,7 +6,7 @@ namespace SlijterijSjonnieLoper.Data
 {
     public interface IWhiskeyData
     {
-        IEnumerable<Whiskey> GetAll();
+        IEnumerable<Whiskey> GetWhiskeysByName(string name);
     }
 
     public class InMemoryWhiskeyData : IWhiskeyData
@@ -24,9 +24,10 @@ namespace SlijterijSjonnieLoper.Data
 
             };
         }
-        public IEnumerable<Whiskey> GetAll()
+        public IEnumerable<Whiskey> GetWhiskeysByName(string name = null)
         {
             return from w in whiskeys
+                   where string.IsNullOrEmpty(name) || w.Name.StartsWith(name)
                    orderby w.Name
                    select w;
         }
