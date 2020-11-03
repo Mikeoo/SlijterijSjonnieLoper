@@ -17,6 +17,7 @@ namespace SlijterijSjonnieLoper.Pages.Whiskeys
 
         public string Message { get; set; }
         public IEnumerable<Whiskey> Whiskeys { get; set; }
+
         [BindProperty(SupportsGet = true )]
         public string SearchTerm { get; set; }
 

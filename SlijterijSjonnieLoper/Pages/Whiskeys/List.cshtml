@@ -10,11 +10,11 @@
         <div class="input-group">
             <input type="search" class="form-control"
                    asp-for="SearchTerm" />
-            <!--   <span class="input-group-btn">
-                <button class="btn btn-default">
-                    <i class="glyphicon glyphicon-search"></i>
-                </button>
-            </span> -->
+               <span class="input-group-btn">
+                    <button class="btn btn-default">
+                        <i class="fas fa-search"></i>
+                     </button>
+            </span> 
         </div>
     </div>
 </form>
@@ -26,6 +26,18 @@
             <td>@whiskey.Name</td>
             <td>@whiskey.Brand</td>
             <td>@whiskey.Type</td>
+            <td>
+                <a class="btn btn-lg"
+                   asp-page="./Detail"
+                   asp-route-whiskeyId="@whiskey.Id">
+                    <i class="fas fa-search-plus"></i>
+                </a>
+                <a class="btn btn-lg"
+                   asp-page="./Detail"
+                   asp-route-whiskey="@whiskey.Id">
+                    <i class="far fa-edit"></i>
+                </a>
+            </td>
         </tr>
     }
 </table>

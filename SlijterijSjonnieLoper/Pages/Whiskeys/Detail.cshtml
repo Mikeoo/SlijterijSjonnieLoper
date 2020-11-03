@@ -1,0 +1,18 @@
+﻿@page "{whiskeyId:int}"
+@model SlijterijSjonnieLoper.Pages.Whiskeys.DetailModel
+@{
+}
+
+<h2>@Model.Whiskey.Name</h2>
+
+<div>
+    Id: @Model.Whiskey.Id
+</div>
+<div>
+    Name: @Model.Whiskey.Name
+</div>
+<div>
+    Brand: @Model.Whiskey.Brand
+</div>
+
+<a asp-page="./List" class="btn btn-dark">All Whiskeys</a>

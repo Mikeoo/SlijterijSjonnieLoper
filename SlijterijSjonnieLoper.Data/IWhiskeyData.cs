@@ -7,6 +7,7 @@ namespace SlijterijSjonnieLoper.Data
     public interface IWhiskeyData
     {
         IEnumerable<Whiskey> GetWhiskeysByName(string name);
+        Whiskey GetById(int id);
     }
 
     public class InMemoryWhiskeyData : IWhiskeyData
@@ -23,6 +24,11 @@ namespace SlijterijSjonnieLoper.Data
                 new Whiskey{ Id = 5, Name = "Black Barrel", Price = 33.99m, Brand = WhiskeyBrand.Jameson, Type = WhiskeyType.Irish},
 
             };
+        }
+
+        public Whiskey GetById(int id)
+        {
+            return whiskeys.SingleOrDefault(w => w.Id == id);
         }
         public IEnumerable<Whiskey> GetWhiskeysByName(string name = null)
         {
