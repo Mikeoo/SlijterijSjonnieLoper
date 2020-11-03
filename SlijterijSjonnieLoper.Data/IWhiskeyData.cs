@@ -16,7 +16,7 @@ namespace SlijterijSjonnieLoper.Data
         {
             whiskeys = new List<Whiskey>()
             {
-                new Whiskey{ Id = 1, Name = "Blue Label", Price = 159.99m, Brand = WhiskeyBrand.JohnnieWalker, Type = WhiskeyType.Scotch},
+                new Whiskey{ Id = 1, Name = "Blue Label", Price = 159.996m, Brand = WhiskeyBrand.JohnnieWalker, Type = WhiskeyType.Scotch},
                 new Whiskey{ Id = 2, Name = "Double Oak", Price = 28.49m, Brand = WhiskeyBrand.JimBeam, Type = WhiskeyType.Bourbon},
                 new Whiskey{ Id = 3, Name = "12 Y", Price = 159.32m, Brand = WhiskeyBrand.Yamazaki, Type = WhiskeyType.Japanese},
                 new Whiskey{ Id = 4, Name = "100% RYE", Price = 200.60m, Brand = WhiskeyBrand.CanadianClub, Type = WhiskeyType.Canadian},
