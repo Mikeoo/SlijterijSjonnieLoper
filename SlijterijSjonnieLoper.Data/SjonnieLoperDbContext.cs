@@ -8,7 +8,7 @@ using System.Text;
 
 namespace SlijterijSjonnieLoper.Data
 {
-    public class SjonnieLoperDbContext : IdentityDbContext<IdentityUser>
+    public class SjonnieLoperDbContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<Whiskey> Whiskeys { get; set; }
 
