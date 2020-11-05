@@ -1,6 +1,36 @@
-﻿@page "{whiskeyId:int}"
+﻿@page "{whiskeyId:int?}"
 @model SlijterijSjonnieLoper.Pages.Whiskeys.EditModel
 @{
 }
 
 <h2>Editing @Model.Whiskey.Name</h2>
+
+<form method="post">
+
+    <input type="hidden" asp-for="Whiskey.Id" />
+    <div class="form-group">
+        <label asp-for="Whiskey.Name"></label>
+        <input asp-for="Whiskey.Name" class="form-control" />
+        <span class="text-danger" asp-validation-for="Whiskey.Name"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Whiskey.Price"></label>
+        <input asp-for="Whiskey.Price" class="form-control" />
+        <span class="text-danger" asp-validation-for="Whiskey.Price"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Whiskey.Brand"></label>
+        <select asp-for="Whiskey.Brand" class="form-control"
+                asp-items="Model.WhiskeyBrands">
+        </select>
+        <span class="text-danger" asp-validation-for="Whiskey.Brand"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Whiskey.Type"></label>
+        <select asp-for="Whiskey.Type" class="form-control"
+                asp-items="Model.WhiskeyTypes">
+        </select>
+        <span class="text-danger" asp-validation-for="Whiskey.Type"></span>
+    </div>
+    <button type="submit" class="btn btn-info">Save</button>
+</form>

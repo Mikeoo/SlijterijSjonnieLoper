@@ -8,6 +8,9 @@ namespace SlijterijSjonnieLoper.Data
     {
         IEnumerable<Whiskey> GetWhiskeysByName(string name);
         Whiskey GetById(int id);
+        Whiskey Update(Whiskey updatedWhiskey);
+        Whiskey Add(Whiskey newWhiskey);
+        int Commit();
     }
 
     public class InMemoryWhiskeyData : IWhiskeyData
@@ -30,12 +33,37 @@ namespace SlijterijSjonnieLoper.Data
         {
             return whiskeys.SingleOrDefault(w => w.Id == id);
         }
+
+        public Whiskey Add(Whiskey newWhiskey)
+        {
+            whiskeys.Add(newWhiskey);
+            //test
+            newWhiskey.Id = whiskeys.Max(w => w.Id) + 1;
+            return newWhiskey;
+        }
         public IEnumerable<Whiskey> GetWhiskeysByName(string name = null)
         {
             return from w in whiskeys
                    where string.IsNullOrEmpty(name) || w.Name.StartsWith(name)
                    orderby w.Name
                    select w;
+        }
+        public int Commit()
+        {
+            return 0;
+        }
+        public Whiskey Update(Whiskey updatedWhiskey)
+        {
+            var whiskey = whiskeys.SingleOrDefault(w => w.Id == updatedWhiskey.Id);
+            if (whiskey != null)
+            {
+                whiskey.Name = updatedWhiskey.Name;
+                whiskey.Price = updatedWhiskey.Price;
+                whiskey.Brand = updatedWhiskey.Brand;
+                whiskey.Type = updatedWhiskey.Type;
+
+            }
+            return whiskey;
         }
     }
 }

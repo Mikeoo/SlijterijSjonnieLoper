@@ -2,17 +2,40 @@
 @model SlijterijSjonnieLoper.Pages.Whiskeys.DetailModel
 @{
 }
-
+@if (Model.Message != null)
+{
+    <div class="alert alert-info">@Model.Message</div>
+}
 <h2>@Model.Whiskey.Name</h2>
+<div>
+    <table class="table">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Brand</th>
+            <th>Type</th>
+            <th>Price</th>
+        </tr>
+        <tr>
+            <td>
+                @Model.Whiskey.Id
+            </td>
+            <td>
+                @Model.Whiskey.Name
+            </td>
+            <td>
+                @Model.Whiskey.Brand
+            </td>
+            <td>
+                @Model.Whiskey.Type
+            </td>
+            <td>
+                @Model.Whiskey.Price
+            </td>
+        </tr>
+    </table>
+</div>
+<div>
+    <a asp-page="./List" class="btn btn-info">All Whiskeys</a>
+</div>
 
-<div>
-    Id: @Model.Whiskey.Id
-</div>
-<div>
-    Name: @Model.Whiskey.Name
-</div>
-<div>
-    Brand: @Model.Whiskey.Brand
-</div>
-
-<a asp-page="./List" class="btn btn-dark">All Whiskeys</a>

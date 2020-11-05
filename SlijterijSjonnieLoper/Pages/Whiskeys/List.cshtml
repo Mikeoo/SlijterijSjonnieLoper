@@ -20,24 +20,33 @@
 </form>
 
 <table class="table">
+    <tr>
+        <th>Name</th>
+        <th>Brand</th>
+        <th>Type</th>
+        <th>Price</th>
+    </tr>
     @foreach (var whiskey in Model.Whiskeys)
     {
-        <tr>
-            <td>@whiskey.Name</td>
-            <td>@whiskey.Brand</td>
-            <td>@whiskey.Type</td>
-            <td>
-                <a class="btn btn-lg"
-                   asp-page="./Detail"
-                   asp-route-whiskeyId="@whiskey.Id">
-                    <i class="fas fa-search-plus"></i>
-                </a>
-                <a class="btn btn-lg"
-                   asp-page="./Edit"
-                   asp-route-whiskeyId="@whiskey.Id">
-                    <i class="far fa-edit"></i>
-                </a>
-            </td>
-        </tr>
+    <tr>
+        <td>@whiskey.Name</td>
+        <td>@whiskey.Brand</td>
+        <td>@whiskey.Type</td>
+        <td>@whiskey.Price</td>
+        <td>
+            <a class="btn btn-lg"
+               asp-page="./Detail"
+               asp-route-whiskeyId="@whiskey.Id">
+                <i class="fas fa-search-plus"></i>
+            </a>
+            <a class="btn btn-lg"
+               asp-page="./Edit"
+               asp-route-whiskeyId="@whiskey.Id">
+                <i class="far fa-edit"></i>
+            </a>
+        </td>
+    </tr>
     }
 </table>
+
+<a asp-page=".\Edit" class="btn btn-info">Add New</a>

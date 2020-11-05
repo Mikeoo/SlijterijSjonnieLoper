@@ -11,8 +11,11 @@ namespace SlijterijSjonnieLoper.Pages.Whiskeys
 {
     public class DetailModel : PageModel
     {
-        public Whiskey Whiskey { get; set; }
         private readonly IWhiskeyData whiskeyData;
+        [TempData]
+        public string Message { get; set; }
+        public Whiskey Whiskey { get; set; }
+
         public DetailModel(IWhiskeyData whiskeyData)
         {
             this.whiskeyData = whiskeyData;
