@@ -8,7 +8,7 @@ using SlijterijSjonnieLoper.Data;
 
 namespace SlijterijSjonnieLoper.Migrations
 {
-    [DbContext(typeof(SlijterijSjonnieLoperContext))]
+    [DbContext(typeof(SjonnieLoperDbContext))]
     partial class SlijterijSjonnieLoperContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

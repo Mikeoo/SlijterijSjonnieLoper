@@ -9,7 +9,7 @@ using SlijterijSjonnieLoper.Data;
 
 namespace SlijterijSjonnieLoper.Migrations
 {
-    [DbContext(typeof(SlijterijSjonnieLoperContext))]
+    [DbContext(typeof(SjonnieLoperDbContext))]
     [Migration("20201103101254_test")]
     partial class test
     {
