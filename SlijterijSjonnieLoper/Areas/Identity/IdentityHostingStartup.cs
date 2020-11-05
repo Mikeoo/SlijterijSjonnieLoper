@@ -15,12 +15,12 @@ namespace SlijterijSjonnieLoper.Areas.Identity
         {
             builder.ConfigureServices((context, services) =>
             {
-                services.AddDbContext<SlijterijSjonnieLoperContext>(options =>
+                services.AddDbContext<SjonnieLoperDbContext>(options =>
                     options.UseSqlServer(
                         context.Configuration.GetConnectionString("SlijterijSjonnieLoperContextConnection")));
 
                 services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                    .AddEntityFrameworkStores<SlijterijSjonnieLoperContext>();
+                    .AddEntityFrameworkStores<SjonnieLoperDbContext>();
             });
         }
     }

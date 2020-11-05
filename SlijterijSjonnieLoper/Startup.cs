@@ -2,9 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -25,7 +27,12 @@ namespace SlijterijSjonnieLoper
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<IWhiskeyData, InMemoryWhiskeyData>();
-            services.AddRazorPages();
+            services.AddRazorPages().AddMvcOptions(o => o.Filters.Add(new AuthorizeFilter()));
+
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("EmployeeOnly", policy => policy.RequireClaim("EmployeeNumber"));
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,7 +53,7 @@ namespace SlijterijSjonnieLoper
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
