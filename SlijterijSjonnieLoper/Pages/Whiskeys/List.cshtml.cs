@@ -14,7 +14,7 @@ namespace SlijterijSjonnieLoper.Pages.Whiskeys
     {
         private readonly IConfiguration config;
         private readonly IWhiskeyData whiskeyData;
-
+      
         public string Message { get; set; }
         public IEnumerable<Whiskey> Whiskeys { get; set; }
 

@@ -11,6 +11,7 @@ namespace SlijterijSjonnieLoper.Pages.Whiskeys
     {
         public void OnGet()
         {
+
         }
     }
 }
