@@ -19,7 +19,7 @@ namespace SlijterijSjonnieLoper.Areas.Identity
                     options.UseSqlServer(
                         context.Configuration.GetConnectionString("SlijterijSjonnieLoperContextConnection")));
 
-                services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                services.AddDefaultIdentity<SlijterijSjonnieLoper.Core.ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
                     .AddEntityFrameworkStores<SjonnieLoperDbContext>();
             });
         }

@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using SlijterijSjonnieLoper.Core;
 using SlijterijSjonnieLoper.Data;
 
 namespace SlijterijSjonnieLoper
@@ -28,7 +29,6 @@ namespace SlijterijSjonnieLoper
         {
             services.AddSingleton<IWhiskeyData, InMemoryWhiskeyData>();
             services.AddRazorPages().AddMvcOptions(o => o.Filters.Add(new AuthorizeFilter()));
-
             services.AddAuthorization(options =>
             {
                 options.AddPolicy("EmployeeOnly", policy => policy.RequireClaim("EmployeeNumber"));

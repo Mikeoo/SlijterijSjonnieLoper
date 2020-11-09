@@ -10,8 +10,8 @@ using SlijterijSjonnieLoper.Data;
 namespace SlijterijSjonnieLoper.Data.Migrations
 {
     [DbContext(typeof(SjonnieLoperDbContext))]
-    [Migration("20201105143241_testClass2")]
-    partial class testClass2
+    [Migration("20201109100409_init2")]
+    partial class init2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -235,6 +235,7 @@ namespace SlijterijSjonnieLoper.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("Price")

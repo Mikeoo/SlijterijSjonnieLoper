@@ -11,6 +11,7 @@ namespace SlijterijSjonnieLoper.Data
     public class SjonnieLoperDbContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<Whiskey> Whiskeys { get; set; }
+        //public DbSet<ApplicationUser> applicationUsers { get; set; }
 
         public SjonnieLoperDbContext(DbContextOptions<SjonnieLoperDbContext> options)
             : base(options)
