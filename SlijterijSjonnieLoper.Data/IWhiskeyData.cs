@@ -20,11 +20,11 @@ namespace SlijterijSjonnieLoper.Data
         {
             whiskeys = new List<Whiskey>()
             {
-                new Whiskey{ Id = 1, Name = "Blue Label", Price = 159.996m, Brand = WhiskeyBrand.JohnnieWalker, Type = WhiskeyType.Scotch},
-                new Whiskey{ Id = 2, Name = "Double Oak", Price = 28.49m, Brand = WhiskeyBrand.JimBeam, Type = WhiskeyType.Bourbon},
-                new Whiskey{ Id = 3, Name = "12 Y", Price = 159.32m, Brand = WhiskeyBrand.Yamazaki, Type = WhiskeyType.Japanese},
-                new Whiskey{ Id = 4, Name = "100% RYE", Price = 200.60m, Brand = WhiskeyBrand.CanadianClub, Type = WhiskeyType.Canadian},
-                new Whiskey{ Id = 5, Name = "Black Barrel", Price = 33.99m, Brand = WhiskeyBrand.Jameson, Type = WhiskeyType.Irish},
+                new Whiskey{ Id = 1, Name = "Blue Label", Price = 159.996m, Brand = WhiskeyBrand.JohnnieWalker, Type = WhiskeyType.Scotch, Area=WhiskeyArea.Highlands, Percentage=16/*, IsDeleted=false, AreaOptional="", WhiskeyLabel=""*/},
+                new Whiskey{ Id = 2, Name = "Double Oak", Price = 28.49m, Brand = WhiskeyBrand.JimBeam, Type = WhiskeyType.Bourbon, Area=WhiskeyArea.Highlands, Percentage=16/*, IsDeleted=false, AreaOptional="", WhiskeyLabel=""*/},
+                new Whiskey{ Id = 3, Name = "12 Y", Price = 159.32m, Brand = WhiskeyBrand.Yamazaki, Type = WhiskeyType.Japanese, Area=WhiskeyArea.Highlands, Percentage=16/*, IsDeleted=false, AreaOptional="", WhiskeyLabel=""*/},
+                new Whiskey{ Id = 4, Name = "100% RYE", Price = 200.60m, Brand = WhiskeyBrand.CanadianClub, Type = WhiskeyType.Canadian, Area=WhiskeyArea.Highlands, Percentage=16/*, IsDeleted=false, AreaOptional="", WhiskeyLabel=""*/},
+                new Whiskey{ Id = 5, Name = "Black Barrel", Price = 33.99m, Brand = WhiskeyBrand.Jameson, Type = WhiskeyType.Irish, Area=WhiskeyArea.Highlands, Percentage=16/*, IsDeleted=false, AreaOptional="", WhiskeyLabel=""*/},
 
             };
         }
@@ -61,6 +61,11 @@ namespace SlijterijSjonnieLoper.Data
                 whiskey.Price = updatedWhiskey.Price;
                 whiskey.Brand = updatedWhiskey.Brand;
                 whiskey.Type = updatedWhiskey.Type;
+                whiskey.Area = updatedWhiskey.Area;
+                whiskey.Percentage = updatedWhiskey.Percentage;
+                //whiskey.IsDeleted = updatedWhiskey.IsDeleted;
+                //whiskey.AreaOptional = updatedWhiskey.AreaOptional;
+                //whiskey.WhiskeyLabel = updatedWhiskey.WhiskeyLabel;
 
             }
             return whiskey;

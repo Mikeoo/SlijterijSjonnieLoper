@@ -19,6 +19,7 @@ namespace SlijterijSjonnieLoper.Pages.Whiskeys
         public Whiskey Whiskey { get; set; }
         public IEnumerable<SelectListItem> WhiskeyBrands { get; set; }
         public IEnumerable<SelectListItem> WhiskeyTypes { get; set; }
+        public IEnumerable<SelectListItem> WhiskeyArea { get; set; }
         public EditModel(IWhiskeyData whiskeyData, 
                          IHtmlHelper htmlHelper)
         {
@@ -29,6 +30,7 @@ namespace SlijterijSjonnieLoper.Pages.Whiskeys
         {
             WhiskeyTypes = htmlHelper.GetEnumSelectList<WhiskeyType>();
             WhiskeyBrands = htmlHelper.GetEnumSelectList<WhiskeyBrand>();
+            WhiskeyArea = htmlHelper.GetEnumSelectList<WhiskeyArea>();
             if (whiskeyId.HasValue)
             {
                 Whiskey = whiskeyData.GetById(whiskeyId.Value);
@@ -50,6 +52,7 @@ namespace SlijterijSjonnieLoper.Pages.Whiskeys
             {
                 WhiskeyTypes = htmlHelper.GetEnumSelectList<WhiskeyType>();
                 WhiskeyBrands = htmlHelper.GetEnumSelectList<WhiskeyBrand>();
+                WhiskeyArea = htmlHelper.GetEnumSelectList<WhiskeyArea>();
                 return Page();               
             }
             if(Whiskey.Id >0)

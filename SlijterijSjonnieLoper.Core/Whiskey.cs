@@ -18,5 +18,15 @@ namespace SlijterijSjonnieLoper.Core
         public WhiskeyBrand Brand { get; set; }
         [Required]
         public WhiskeyType Type { get; set; }
+        [Required]
+        public WhiskeyArea Area { get; set; }
+        [Required]
+        public decimal Percentage { get; set; }
+        //[Required]
+        //public string WhiskeyLabel { get; set; }
+        //public bool IsDeleted { get; set; }
+        //[Required]
+        //public string AreaOptional { get; set; }
+
     }
 }
