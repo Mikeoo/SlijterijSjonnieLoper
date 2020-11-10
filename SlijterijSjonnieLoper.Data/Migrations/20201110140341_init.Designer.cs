@@ -10,8 +10,8 @@ using SlijterijSjonnieLoper.Data;
 namespace SlijterijSjonnieLoper.Data.Migrations
 {
     [DbContext(typeof(SjonnieLoperDbContext))]
-    [Migration("20201109100409_init2")]
-    partial class init2
+    [Migration("20201110140341_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -231,12 +231,18 @@ namespace SlijterijSjonnieLoper.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("Area")
+                        .HasColumnType("int");
+
                     b.Property<int>("Brand")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("Percentage")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");

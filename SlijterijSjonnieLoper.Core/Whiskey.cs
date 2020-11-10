@@ -21,6 +21,8 @@ namespace SlijterijSjonnieLoper.Core
         [Required]
         public WhiskeyArea Area { get; set; }
         [Required]
+        [Column(TypeName = "decimal(18,2)")]
+
         public decimal Percentage { get; set; }
         //[Required]
         //public string WhiskeyLabel { get; set; }
