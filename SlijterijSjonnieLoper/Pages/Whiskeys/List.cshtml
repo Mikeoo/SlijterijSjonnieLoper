@@ -25,6 +25,7 @@
         <th>Brand</th>
         <th>Type</th>
         <th>Price</th>
+        <th>Deleted</th>
     </tr>
     @foreach (var whiskey in Model.Whiskeys)
     {
@@ -33,6 +34,7 @@
         <td>@whiskey.Brand</td>
         <td>@whiskey.Type</td>
         <td>@whiskey.Price</td>
+        <td>@whiskey.IsDeleted</td>
         <td>
             <a class="btn btn-lg"
                asp-page="./Detail"
@@ -43,6 +45,11 @@
                asp-page="./Edit"
                asp-route-whiskeyId="@whiskey.Id">
                 <i class="far fa-edit"></i>
+            </a>
+            <a class="btn btn-lg"
+               asp-page="./Delete"
+               asp-route-whiskeyId="@whiskey.Id">
+                <i class="far fa-trash-alt"></i>
             </a>
         </td>
     </tr>

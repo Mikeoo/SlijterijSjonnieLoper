@@ -1,0 +1,14 @@
+﻿@page "{whiskeyId:int}"
+@model SlijterijSjonnieLoper.Pages.Whiskeys.DeleteModel
+@{
+}
+
+<h2>Delete @Model.Whiskey.Name</h2>
+
+<div class=" alert alert-danger">
+    Are you sure you want to delete @Model.Whiskey.Name whiskey?
+</div>
+<form method="post">
+    <button type="submit" class="btn btn-info">Yes</button>
+    <a asp-page="List" class="btn btn-info">No</a>
+</form>

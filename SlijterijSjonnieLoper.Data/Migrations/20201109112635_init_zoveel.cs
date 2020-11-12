@@ -2,7 +2,7 @@
 
 namespace SlijterijSjonnieLoper.Data.Migrations
 {
-    public partial class init2 : Migration
+    public partial class init_zoveel : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

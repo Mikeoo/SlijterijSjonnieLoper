@@ -19,14 +19,16 @@ namespace SlijterijSjonnieLoper.Core
         [Required]
         public WhiskeyType Type { get; set; }
         [Required]
+        [Display(Name="Region")]
         public WhiskeyArea Area { get; set; }
         [Required]
+        [Column(TypeName = "decimal(18,2)")]
         public decimal Percentage { get; set; }
+        public string WhiskeyLabel { get; set; }
+        public bool IsDeleted { get; set; }
         //[Required]
-        //public string WhiskeyLabel { get; set; }
-        //public bool IsDeleted { get; set; }
-        //[Required]
-        //public string AreaOptional { get; set; }
+        [Display(Name="Other region")]
+        public string AreaOptional { get; set; }
 
     }
 }

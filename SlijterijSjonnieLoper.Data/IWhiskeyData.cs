@@ -1,6 +1,7 @@
 ﻿using SlijterijSjonnieLoper.Core;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace SlijterijSjonnieLoper.Data
 {
@@ -10,6 +11,7 @@ namespace SlijterijSjonnieLoper.Data
         Whiskey GetById(int id);
         Whiskey Update(Whiskey updatedWhiskey);
         Whiskey Add(Whiskey newWhiskey);
+        Whiskey Delete(int whiskeyId);
         int Commit();
     }
 
@@ -20,11 +22,11 @@ namespace SlijterijSjonnieLoper.Data
         {
             whiskeys = new List<Whiskey>()
             {
-                new Whiskey{ Id = 1, Name = "Blue Label", Price = 159.996m, Brand = WhiskeyBrand.JohnnieWalker, Type = WhiskeyType.Scotch, Area=WhiskeyArea.Highlands, Percentage=16/*, IsDeleted=false, AreaOptional="", WhiskeyLabel=""*/},
-                new Whiskey{ Id = 2, Name = "Double Oak", Price = 28.49m, Brand = WhiskeyBrand.JimBeam, Type = WhiskeyType.Bourbon, Area=WhiskeyArea.Highlands, Percentage=16/*, IsDeleted=false, AreaOptional="", WhiskeyLabel=""*/},
-                new Whiskey{ Id = 3, Name = "12 Y", Price = 159.32m, Brand = WhiskeyBrand.Yamazaki, Type = WhiskeyType.Japanese, Area=WhiskeyArea.Highlands, Percentage=16/*, IsDeleted=false, AreaOptional="", WhiskeyLabel=""*/},
-                new Whiskey{ Id = 4, Name = "100% RYE", Price = 200.60m, Brand = WhiskeyBrand.CanadianClub, Type = WhiskeyType.Canadian, Area=WhiskeyArea.Highlands, Percentage=16/*, IsDeleted=false, AreaOptional="", WhiskeyLabel=""*/},
-                new Whiskey{ Id = 5, Name = "Black Barrel", Price = 33.99m, Brand = WhiskeyBrand.Jameson, Type = WhiskeyType.Irish, Area=WhiskeyArea.Highlands, Percentage=16/*, IsDeleted=false, AreaOptional="", WhiskeyLabel=""*/},
+                new Whiskey{ Id = 1, Name = "Blue Label", Price = 159.996m, Brand = WhiskeyBrand.JohnnieWalker, Type = WhiskeyType.Scotch, Area=WhiskeyArea.Highlands, Percentage=16, IsDeleted=false, AreaOptional="", WhiskeyLabel=""},
+                new Whiskey{ Id = 2, Name = "Double Oak", Price = 28.49m, Brand = WhiskeyBrand.JimBeam, Type = WhiskeyType.Bourbon, Area=WhiskeyArea.Highlands, Percentage=16, IsDeleted=false, AreaOptional="", WhiskeyLabel=""},
+                new Whiskey{ Id = 3, Name = "12 Y", Price = 159.32m, Brand = WhiskeyBrand.Yamazaki, Type = WhiskeyType.Japanese, Area=WhiskeyArea.Highlands, Percentage=16, IsDeleted=false, AreaOptional="", WhiskeyLabel=""},
+                new Whiskey{ Id = 4, Name = "100% RYE", Price = 200.60m, Brand = WhiskeyBrand.CanadianClub, Type = WhiskeyType.Canadian, Area=WhiskeyArea.Highlands, Percentage=16, IsDeleted=false, AreaOptional="", WhiskeyLabel=""},
+                new Whiskey{ Id = 5, Name = "Black Barrel", Price = 33.99m, Brand = WhiskeyBrand.Jameson, Type = WhiskeyType.Irish, Area=WhiskeyArea.Highlands, Percentage=16, IsDeleted=false, AreaOptional="", WhiskeyLabel=""},
 
             };
         }
@@ -67,6 +69,15 @@ namespace SlijterijSjonnieLoper.Data
                 //whiskey.AreaOptional = updatedWhiskey.AreaOptional;
                 //whiskey.WhiskeyLabel = updatedWhiskey.WhiskeyLabel;
 
+            }
+            return whiskey;
+        }
+        public Whiskey Delete(int whiskeyId)
+        {
+            var whiskey = GetById(whiskeyId);
+            if (whiskey != null)
+                {
+                whiskey.IsDeleted = true;
             }
             return whiskey;
         }
