@@ -2,7 +2,15 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>33ca4b59-27c0-4f33-b5b5-15a98ba359ef</UserSecretsId>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\**" />
+    <Content Remove="Migrations\**" />
+    <EmbeddedResource Remove="Migrations\**" />
+    <None Remove="Migrations\**" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="glyphicon" Version="1.0.1" />
@@ -23,7 +31,6 @@
 
   <ItemGroup>
     <Folder Include="Areas\Identity\Data\" />
-    <Folder Include="Migrations\" />
   </ItemGroup>
 
 </Project>
