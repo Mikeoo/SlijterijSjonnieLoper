@@ -19,8 +19,4 @@
     <ProjectReference Include="..\SlijterijSjonnieLoper.Core\SlijterijSjonnieLoper.Core.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Migrations\" />
-  </ItemGroup>
-
 </Project>

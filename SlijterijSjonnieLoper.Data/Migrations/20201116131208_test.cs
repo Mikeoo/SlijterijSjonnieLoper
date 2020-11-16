@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace SlijterijSjonnieLoper.Data.Migrations
 {
-    public partial class init : Migration
+    public partial class test : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -40,7 +40,8 @@ namespace SlijterijSjonnieLoper.Data.Migrations
                     LockoutEnd = table.Column<DateTimeOffset>(nullable: true),
                     LockoutEnabled = table.Column<bool>(nullable: false),
                     AccessFailedCount = table.Column<int>(nullable: false),
-                    FavoriteDrink = table.Column<string>(nullable: true)
+                    FavoriteDrink = table.Column<string>(nullable: true),
+                    IsAdmin = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -58,7 +59,10 @@ namespace SlijterijSjonnieLoper.Data.Migrations
                     Brand = table.Column<int>(nullable: false),
                     Type = table.Column<int>(nullable: false),
                     Area = table.Column<int>(nullable: false),
-                    Percentage = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
+                    Percentage = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    WhiskeyLabel = table.Column<string>(nullable: true),
+                    IsDeleted = table.Column<bool>(nullable: false),
+                    AreaOptional = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -111,8 +115,8 @@ namespace SlijterijSjonnieLoper.Data.Migrations
                 name: "AspNetUserLogins",
                 columns: table => new
                 {
-                    LoginProvider = table.Column<string>(maxLength: 128, nullable: false),
-                    ProviderKey = table.Column<string>(maxLength: 128, nullable: false),
+                    LoginProvider = table.Column<string>(nullable: false),
+                    ProviderKey = table.Column<string>(nullable: false),
                     ProviderDisplayName = table.Column<string>(nullable: true),
                     UserId = table.Column<string>(nullable: false)
                 },
@@ -156,8 +160,8 @@ namespace SlijterijSjonnieLoper.Data.Migrations
                 columns: table => new
                 {
                     UserId = table.Column<string>(nullable: false),
-                    LoginProvider = table.Column<string>(maxLength: 128, nullable: false),
-                    Name = table.Column<string>(maxLength: 128, nullable: false),
+                    LoginProvider = table.Column<string>(nullable: false),
+                    Name = table.Column<string>(nullable: false),
                     Value = table.Column<string>(nullable: true)
                 },
                 constraints: table =>

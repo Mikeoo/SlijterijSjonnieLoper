@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using SlijterijSjonnieLoper.Core;
 using SlijterijSjonnieLoper.Data;
 
 [assembly: HostingStartup(typeof(SlijterijSjonnieLoper.Areas.Identity.IdentityHostingStartup))]
@@ -20,8 +21,25 @@ namespace SlijterijSjonnieLoper.Areas.Identity
                     options.UseSqlServer(
                         context.Configuration.GetConnectionString("SlijterijSjonnieLoperContextConnection")));
 
-                services.AddDefaultIdentity<SlijterijSjonnieLoper.Core.ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                    .AddEntityFrameworkStores<SjonnieLoperDbContext>();
+                services.AddScoped<IUserClaimsPrincipalFactory<ApplicationUser>, AdditionalUserClaimsPrincipalFactory>();
+
+                services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                .AddRoles<IdentityRole>() // <-- Here
+                .AddEntityFrameworkStores<SjonnieLoperDbContext>();
+                //services.AddAuthorization( options =>
+                //options.AddPolicy("IsAuthorized", policy => policy.RequireClaim("IsAdmin")));
+                //services.AddRazorPages();
+                //services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                //    .AddEntityFrameworkStores<SjonnieLoperDbContext>();
+
+                //services.AddIdentity<ApplicationUser, IdentityRole>()
+                //    .AddEntityFrameworkStores<SjonnieLoperDbContext>()
+                //    .AddDefaultTokenProviders();
+
+                //services.AddScoped<IUserClaimsPrincipalFactory<ApplicationUser>,
+                //    AdditionalUserClaimsPrincipalFactory>();
+
+
             });
         }
     }
