@@ -11,6 +11,7 @@ namespace SlijterijSjonnieLoper.Areas.Identity
 {
     public class IdentityHostingStartup : IHostingStartup
     {
+        //scaffold file identity
         public void Configure(IWebHostBuilder builder)
         {
             builder.ConfigureServices((context, services) =>
