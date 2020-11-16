@@ -1,7 +1,10 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -12,6 +15,7 @@ namespace SlijterijSjonnieLoper.Pages.Whiskeys
 {
     public class EditModel : PageModel
     {
+        private readonly IWebHostEnvironment _environment;
         private readonly IWhiskeyData whiskeyData;
         private readonly IHtmlHelper htmlHelper;
 
@@ -20,6 +24,7 @@ namespace SlijterijSjonnieLoper.Pages.Whiskeys
         public IEnumerable<SelectListItem> WhiskeyBrands { get; set; }
         public IEnumerable<SelectListItem> WhiskeyTypes { get; set; }
         public IEnumerable<SelectListItem> WhiskeyArea { get; set; }
+        public IFormFile Upload { get; set; }
         public EditModel(IWhiskeyData whiskeyData, 
                          IHtmlHelper htmlHelper)
         {
@@ -45,7 +50,7 @@ namespace SlijterijSjonnieLoper.Pages.Whiskeys
             }
             return Page();
         }
-
+        
         public IActionResult OnPost()
         {
             if (!ModelState.IsValid)
@@ -53,15 +58,20 @@ namespace SlijterijSjonnieLoper.Pages.Whiskeys
                 WhiskeyTypes = htmlHelper.GetEnumSelectList<WhiskeyType>();
                 WhiskeyBrands = htmlHelper.GetEnumSelectList<WhiskeyBrand>();
                 WhiskeyArea = htmlHelper.GetEnumSelectList<WhiskeyArea>();
+                
                 return Page();               
             }
-            if(Whiskey.Id >0)
+
+            // HIER MOET NOG CODE VOOR FILE_UPLOAD KOMEN. <-- MIKE
+
+            if (Whiskey.Id >0)
             {
                 whiskeyData.Update(Whiskey);
             }
             else
             { 
                 whiskeyData.Add(Whiskey);
+
             }
             whiskeyData.Commit();
             TempData["Message"] = "Whiskey saved!";
