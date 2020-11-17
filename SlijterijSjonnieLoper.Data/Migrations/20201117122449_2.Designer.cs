@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SlijterijSjonnieLoper.Data;
 
 namespace SlijterijSjonnieLoper.Data.Migrations
 {
     [DbContext(typeof(SjonnieLoperDbContext))]
-    partial class SjonnieLoperDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201117122449_2")]
+    partial class _2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
