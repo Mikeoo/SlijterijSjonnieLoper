@@ -10,8 +10,8 @@ using SlijterijSjonnieLoper.Data;
 namespace SlijterijSjonnieLoper.Data.Migrations
 {
     [DbContext(typeof(SjonnieLoperDbContext))]
-    [Migration("20201116131208_test")]
-    partial class test
+    [Migration("20201116143427_hoii")]
+    partial class hoii
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

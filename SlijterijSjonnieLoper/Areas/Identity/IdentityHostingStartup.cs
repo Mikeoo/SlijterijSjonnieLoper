@@ -21,8 +21,8 @@ namespace SlijterijSjonnieLoper.Areas.Identity
                     options.UseSqlServer(
                         context.Configuration.GetConnectionString("SlijterijSjonnieLoperContextConnection")));
 
-                services.AddAuthorization( options =>
-                options.AddPolicy("IsAuthorized", policy => policy.RequireClaim("IsAdmin")));
+                services.AddAuthorization(options =>
+               options.AddPolicy("IsAdmin", policy => policy.RequireClaim("IsAdmin")));
                 services.AddRazorPages();
                 //services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 //    .AddEntityFrameworkStores<SjonnieLoperDbContext>();
@@ -34,7 +34,12 @@ namespace SlijterijSjonnieLoper.Areas.Identity
                 services.AddScoped<IUserClaimsPrincipalFactory<ApplicationUser>,
                     AdditionalUserClaimsPrincipalFactory>();
 
-                
+                //services.AddAuthorization(options =>
+                //{
+                //    options.AddPolicy("IsAdmin", policy =>
+                //           policy.RequireRole("IsAdmin"));
+                //});
+
             });
         }
     }

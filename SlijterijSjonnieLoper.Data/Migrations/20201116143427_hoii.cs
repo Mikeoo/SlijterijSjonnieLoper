@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace SlijterijSjonnieLoper.Data.Migrations
 {
-    public partial class test : Migration
+    public partial class hoii : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
