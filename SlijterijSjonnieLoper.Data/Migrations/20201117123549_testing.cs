@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace SlijterijSjonnieLoper.Data.Migrations
 {
-    public partial class init : Migration
+    public partial class testing : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -58,7 +58,10 @@ namespace SlijterijSjonnieLoper.Data.Migrations
                     Brand = table.Column<int>(nullable: false),
                     Type = table.Column<int>(nullable: false),
                     Area = table.Column<int>(nullable: false),
-                    Percentage = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
+                    Percentage = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    WhiskeyLabel = table.Column<string>(nullable: true),
+                    IsDeleted = table.Column<bool>(nullable: false),
+                    AreaOptional = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

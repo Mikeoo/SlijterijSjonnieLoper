@@ -232,8 +232,14 @@ namespace SlijterijSjonnieLoper.Data.Migrations
                     b.Property<int>("Area")
                         .HasColumnType("int");
 
+                    b.Property<string>("AreaOptional")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("Brand")
                         .HasColumnType("int");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -247,6 +253,9 @@ namespace SlijterijSjonnieLoper.Data.Migrations
 
                     b.Property<int>("Type")
                         .HasColumnType("int");
+
+                    b.Property<string>("WhiskeyLabel")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 

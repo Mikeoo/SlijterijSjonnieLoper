@@ -31,15 +31,6 @@ namespace SlijterijSjonnieLoper
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<IWhiskeyData, InMemoryWhiskeyData>();
-            services.AddRazorPages().AddMvcOptions(o => o.Filters.Add(new AuthorizeFilter()));
-            services.AddAuthorization(options =>
-            {
-                options.AddPolicy("EmployeeOnly", policy => policy.RequireClaim("EmployeeNumber"));
-            });
-
-            // requires
-            // using Microsoft.AspNetCore.Identity.UI.Services;
-            // using WebPWrecover.Services;
             services.AddTransient<IEmailSender, EmailSender>();
             services.Configure<AuthMessageSenderOptions>(Configuration);
         }

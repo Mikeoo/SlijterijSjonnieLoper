@@ -10,8 +10,8 @@ using SlijterijSjonnieLoper.Data;
 namespace SlijterijSjonnieLoper.Data.Migrations
 {
     [DbContext(typeof(SjonnieLoperDbContext))]
-    [Migration("20201110140341_init")]
-    partial class init
+    [Migration("20201117123549_testing")]
+    partial class testing
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -234,8 +234,14 @@ namespace SlijterijSjonnieLoper.Data.Migrations
                     b.Property<int>("Area")
                         .HasColumnType("int");
 
+                    b.Property<string>("AreaOptional")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("Brand")
                         .HasColumnType("int");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -249,6 +255,9 @@ namespace SlijterijSjonnieLoper.Data.Migrations
 
                     b.Property<int>("Type")
                         .HasColumnType("int");
+
+                    b.Property<string>("WhiskeyLabel")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
