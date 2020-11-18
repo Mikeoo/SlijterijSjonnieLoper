@@ -8,6 +8,7 @@ namespace SlijterijSjonnieLoper.Core
 {
     public class ApplicationUser : IdentityUser
     {
+        public bool IsAdmin { get; set; }
         public string FavoriteDrink { get; set; }
 
     }
