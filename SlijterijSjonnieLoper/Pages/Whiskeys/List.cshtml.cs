@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Configuration;
@@ -10,6 +11,8 @@ using SlijterijSjonnieLoper.Data;
 
 namespace SlijterijSjonnieLoper.Pages.Whiskeys
 {
+    [Authorize(Policy  = "IsAdmin")]
+
     public class ListModel : PageModel
     {
         private readonly IConfiguration config;

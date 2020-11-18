@@ -9,7 +9,8 @@ using Microsoft.Extensions.Logging;
 
 namespace SlijterijSjonnieLoper.Pages
 {
-    [AllowAnonymous]
+    [Authorize(Roles = "IsAdmin")]
+
     public class IndexModel : PageModel
     {
         private readonly ILogger<IndexModel> _logger;

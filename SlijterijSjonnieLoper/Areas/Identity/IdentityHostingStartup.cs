@@ -4,6 +4,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SlijterijSjonnieLoper.Data;
+using SlijterijSjonnieLoper.Core;
+using SlijterijSjonnieLoper;
+using Microsoft.AspNetCore.Authorization;
 
 [assembly: HostingStartup(typeof(SlijterijSjonnieLoper.Areas.Identity.IdentityHostingStartup))]
 
@@ -19,8 +22,18 @@ namespace SlijterijSjonnieLoper.Areas.Identity
                     options.UseSqlServer(
                         context.Configuration.GetConnectionString("SlijterijSjonnieLoperContextConnection")));
 
-                services.AddDefaultIdentity<SlijterijSjonnieLoper.Core.ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                    .AddRoles<IdentityRole>()
                     .AddEntityFrameworkStores<SjonnieLoperDbContext>();
+
+                services.AddAuthorization(options =>
+                {
+                    options.AddPolicy("IsAdmin", policy => policy.RequireClaim("IsAdmin"));
+                });
+
+
+                services.AddScoped<IUserClaimsPrincipalFactory<ApplicationUser>, AdditionalUserClaimsPrincipalFactory>();
+
             });
         }
     }
