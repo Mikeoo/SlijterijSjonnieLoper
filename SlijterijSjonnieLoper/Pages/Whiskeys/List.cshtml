@@ -1,5 +1,7 @@
 ﻿@page
 @model SlijterijSjonnieLoper.Pages.Whiskeys.ListModel
+@using Microsoft.AspNetCore.Authorization
+@inject IAuthorizationService AuthorizationService
 @{
 }
 
@@ -10,11 +12,11 @@
         <div class="input-group">
             <input type="search" class="form-control"
                    asp-for="SearchTerm" />
-               <span class="input-group-btn">
-                    <button class="btn btn-default">
-                        <i class="fas fa-search"></i>
-                     </button>
-            </span> 
+            <span class="input-group-btn">
+                <button class="btn btn-default">
+                    <i class="fas fa-search"></i>
+                </button>
+            </span>
         </div>
     </div>
 </form>
@@ -29,31 +31,36 @@
     </tr>
     @foreach (var whiskey in Model.Whiskeys)
     {
-    <tr>
-        <td>@whiskey.Name</td>
-        <td>@whiskey.Brand</td>
-        <td>@whiskey.Type</td>
-        <td>@whiskey.Price</td>
-        <td>@whiskey.IsDeleted</td>
-        <td>
-            <a class="btn btn-lg"
-               asp-page="./Detail"
-               asp-route-whiskeyId="@whiskey.Id">
-                <i class="fas fa-search-plus"></i>
-            </a>
-            <a class="btn btn-lg"
-               asp-page="./Edit"
-               asp-route-whiskeyId="@whiskey.Id">
-                <i class="far fa-edit"></i>
-            </a>
-            <a class="btn btn-lg"
-               asp-page="./Delete"
-               asp-route-whiskeyId="@whiskey.Id">
-                <i class="far fa-trash-alt"></i>
-            </a>
-        </td>
-    </tr>
+        <tr>
+            <td>@whiskey.Name</td>
+            <td>@whiskey.Brand</td>
+            <td>@whiskey.Type</td>
+            <td>@whiskey.Price</td>
+            <td>@whiskey.IsDeleted</td>
+            <td>
+                <a class="btn btn-lg"
+                   asp-page="./Detail"
+                   asp-route-whiskeyId="@whiskey.Id">
+                    <i class="fas fa-search-plus"></i>
+                </a>
+                @if ((await AuthorizationService.AuthorizeAsync(User, null, "IsAdmin")).Succeeded)
+                {
+                    <a class="btn btn-lg"
+                       asp-page="./Edit"
+                       asp-route-whiskeyId="@whiskey.Id">
+                        <i class="far fa-edit"></i>
+                    </a>
+                    <a class="btn btn-lg"
+                       asp-page="./Delete"
+                       asp-route-whiskeyId="@whiskey.Id">
+                        <i class="far fa-trash-alt"></i>
+                    </a>
+                }
+            </td>
+        </tr>
     }
 </table>
-
-<a asp-page=".\Edit" class="btn btn-info">Add New</a>
+@if ((await AuthorizationService.AuthorizeAsync(User, null, "IsAdmin")).Succeeded)
+{
+    <a asp-page=".\Edit" class="btn btn-info">Add New</a>
+}
