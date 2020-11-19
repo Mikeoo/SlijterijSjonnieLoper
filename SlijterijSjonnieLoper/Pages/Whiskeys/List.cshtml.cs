@@ -11,8 +11,6 @@ using SlijterijSjonnieLoper.Data;
 
 namespace SlijterijSjonnieLoper.Pages.Whiskeys
 {
-    //[Authorize(Policy  = "IsAdmin")]
-
     public class ListModel : PageModel
     {
         private readonly IConfiguration config;
