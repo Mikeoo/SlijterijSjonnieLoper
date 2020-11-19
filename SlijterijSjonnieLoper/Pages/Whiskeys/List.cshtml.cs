@@ -11,7 +11,7 @@ using SlijterijSjonnieLoper.Data;
 
 namespace SlijterijSjonnieLoper.Pages.Whiskeys
 {
-    [Authorize(Policy  = "IsAdmin")]
+    //[Authorize(Policy  = "IsAdmin")]
 
     public class ListModel : PageModel
     {
