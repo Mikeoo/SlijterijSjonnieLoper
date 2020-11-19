@@ -29,6 +29,7 @@ namespace SlijterijSjonnieLoper.Areas.Identity
                 services.AddAuthorization(options =>
                 {
                     options.AddPolicy("IsAdmin", policy => policy.RequireClaim("role","admin"));
+                    options.AddPolicy("NoAdmin", policy => policy.RequireClaim("role", "user"));
                 });
 
 
