@@ -9,7 +9,7 @@ using Microsoft.Extensions.Logging;
 
 namespace SlijterijSjonnieLoper.Pages
 {
-    [Authorize(Roles = "IsAdmin")]
+    //[Authorize(Roles = "IsAdmin")]
 
     public class IndexModel : PageModel
     {
