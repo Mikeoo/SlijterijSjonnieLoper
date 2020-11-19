@@ -1,19 +1,54 @@
 ﻿@page
-@using Microsoft.AspNetCore.Authorization
-@inject IAuthorizationService AuthorizationService
 @model IndexModel
-
 @{
     ViewData["Title"] = "Home page";
 }
+<div class="jumbotron eigen">
+    <h1 class="display-4"><span>Hello, Alcoholic!</span></h1>
+    <p class="lead"><span>Wij van M&M Verkopen de beste whiskey!</span></p>
+    @if (!SignInManager.IsSignedIn(User))
+    {
+        <hr class="my-4">
+        <p><span>REGISTREER VOOR GRATIS WHISKEY (of toch niet)<span></p>
+        <a class="btn btn-danger btn-lg" href="#" role="button">KLIK DAN!</a>
+    }
+</div>
 
-@if ((await AuthorizationService.AuthorizeAsync(User, null, "IsAdmin")).Succeeded)
-{
-<ul class="mr-auto navbar-nav">
-    <li class="nav-item">
-        <a class="nav-link" asp-controller="Admin" asp-action="Index">ADMIN</a>
-    </li>
-</ul>
-}
-
-<div>hey</div>
+<div class="row row-cols-1 row-cols-md-3">
+    <div class="col mb-4">
+        <div class="card h-100">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col mb-4">
+        <div class="card h-100">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This is a short card.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col mb-4">
+        <div class="card h-100">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col mb-4">
+        <div class="card h-100">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            </div>
+        </div>
+    </div>
+</div>
