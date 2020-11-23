@@ -3,14 +3,24 @@
 @{
     ViewData["Title"] = "Home page";
 }
+
 <div class="jumbotron eigen">
-    <h1 class="display-4"><span>Hello, Alcoholic!</span></h1>
-    <p class="lead"><span>Wij van M&M Verkopen de beste whiskey!</span></p>
     @if (!SignInManager.IsSignedIn(User))
     {
+        <h1 class="display-4"><span>Hello, Alcoholic!</span></h1>
+        <p class="lead"><span>Wij van M&M Verkopen de beste whiskey!</span></p>
         <hr class="my-4">
-        <p><span>REGISTREER VOOR GRATIS WHISKEY (of toch niet)<span></p>
+        <p><span>REGISTREER VOOR GRATIS WHISKEY (of toch niet)</span></p>
         <a class="btn btn-danger btn-lg" href="#" role="button">KLIK DAN!</a>
+    }
+    else
+    {
+        <h1 class="display-4"><span>Hello, @(User.Identity.Name)!</span></h1>
+        <p class="lead"><span>Wij van M&M Verkopen de beste whiskey!</span></p>
+    }
+    @if (!SignInManager.IsSignedIn(User))
+    {
+
     }
 </div>
 
@@ -38,7 +48,7 @@
             <img src="~/images/whiskeys/van-pokeren-zonder-verlies-naar-jellinek-advies.jpg" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">Eva Jellinek</h5>
-                <p class="card-text">Jellinek is al ruim honderd jaar dé expert op het gebied van middelengebruik en verslaving. Iedereen met een (hulp)vraag op dit gebied kan op ons rekenen: mensen die informatie, persoonlijk advies of behandeling nodig hebben, hun naasten en professionals. Jellinek is sterk in preventie en in wetenschappelijk bewezen behandeling.</p>
+                <p class="card-text">Jellinek is al ruim honderd jaar de expert op het gebied van middelengebruik en verslaving. Iedereen met een (hulp)vraag op dit gebied kan op ons rekenen: mensen die informatie, persoonlijk advies of behandeling nodig hebben, hun naasten en professionals. Jellinek is sterk in preventie en in wetenschappelijk bewezen behandeling.</p>
             </div>
         </div>
     </div>

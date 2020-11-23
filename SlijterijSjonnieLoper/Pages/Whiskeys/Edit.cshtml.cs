@@ -65,8 +65,6 @@ namespace SlijterijSjonnieLoper.Pages.Whiskeys
                 return Page();               
             }
 
-            // HIER MOET NOG CODE VOOR FILE_UPLOAD KOMEN. <-- MIKE
-
             if (Whiskey.Id >0)
             {
                 whiskeyData.Update(Whiskey);

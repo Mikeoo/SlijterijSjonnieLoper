@@ -6,14 +6,24 @@
 {
     <div class="alert alert-info">@Model.Message</div>
 }
-<h2>@Model.Whiskey.Name</h2>
-<div>
+<div class="coleigen">
+    <div class="card h-100 w-100">
+        <div class="card-body">
+            <h5 class="card-title">@Model.Whiskey.Name</h5>
+            <p class="card-text">
                 Name: @Model.Whiskey.Name<br />
                 Percentage: @Model.Whiskey.Percentage<br />
                 Brand: @Model.Whiskey.Brand<br />
                 Type: @Model.Whiskey.Type<br />
                 Area: @Model.Whiskey.Area<br />
                 Price: @Model.Whiskey.Price<br />
+            </p>
+        </div>
+    </div>
+</div>
+<p></p>
+<div>
+               
 </div>
 <div>
     <a asp-page="./List" class="btn btn-info">All whiskeys</a>
